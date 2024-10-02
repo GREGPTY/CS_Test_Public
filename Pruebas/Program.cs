@@ -38,9 +38,9 @@ foreach (Type type in assembly.GetTypes())
 PdfModule pdfPodule = new PdfModule();
 ConvertTo convertTo = new ConvertTo();
 pdfPodule.saludo();
-string pdfRuteInput = @"D:\Documents\Aurora\";
-string pdfFileInput = "Medicina Interna Harrison 21º Edición Tomo II";
-string pdfFullInputPath = Path.Combine(pdfRuteInput,pdfFileInput+".pdf");
+string pdfRuteInput = @"Ruta del archivo (solo los folders hasta llegar a el archivo)";
+string pdfFileInput = "Medicina Interna Harrison 21º Edición Tomo II"; //el archivo que es necesario
+string pdfFullInputPath = Path.Combine(pdfRuteInput,pdfFileInput+".pdf");//se le adiciono la extencion (concatenacion)
 string pdfRuteOutput = @"D:\Documents\Aurora\CapSacados\";
 string pdfFileOutput = "Neumologia(Tomo2_Resumido).pdf";
 Console.WriteLine("Ruta de salida: " +pdfRuteOutput);
