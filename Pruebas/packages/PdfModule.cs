@@ -25,7 +25,7 @@ namespace Pruebas.packages
         }
         public string extractTextFromPdf(string PdfPath)
         {
-            //string PdfPath = "D:\\Documents\\Curriculum\\Greg\\DevCodes\\C#\\PruebasCS\\Pruebas\\Files\\";
+            //string PdfPath = "Adiciona la ruta hasta llegar a la ultima carpeta (sin el archivo .pdf)";
             //string PdfPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "aaa.pdf");
             Console.WriteLine("PDF Path: " + PdfPath); // Imprimimos la ruta del archivo de entrada
             StringBuilder sb = new StringBuilder();
@@ -37,9 +37,7 @@ namespace Pruebas.packages
                 {
                     ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
                     string currentText = PdfTextExtractor.GetTextFromPage(reader, page);
-
-                    // Remove unnecessary encoding conversion
-                    //currentText = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(currentText)));
+                    
                     sb.Append(currentText);
                 }
                 reader.Close();
@@ -56,7 +54,7 @@ namespace Pruebas.packages
             iTextSharp.text.Document document = new iTextSharp.text.Document();            
             
             int i = 0, Final = 0;
-            //Documentos de entrada            
+            //Documento de entrada            
             PdfReader reader = new PdfReader(InputRute);
             ConvertTo convertTo = new ConvertTo();
             PdfCopy outputDocument;
@@ -71,7 +69,7 @@ namespace Pruebas.packages
             Exceptiones ex = new Exceptiones();
             //do {
             bool __iConvert = true;
-            int totalPages = reader.NumberOfPages;//total de paginas
+            int totalPages = reader.NumberOfPages;//total de paginas en el documento
             Console.WriteLine("Cuantos Capitulos desea extraer?: ");
             int Chapter= ex.toInt();
             int[,] ChaptersRange = new int[Chapter,2];
@@ -96,7 +94,6 @@ namespace Pruebas.packages
                 Console.WriteLine("\n");
             }
 
-            //} while (); este se usara cuando sea necesario añadir mas de un capítulo y es necesario usar un array[]
             for (int ActualChapter = 0;ActualChapter < Chapter;ActualChapter+=1) {
                 i = ChaptersRange[ActualChapter, 0];
                 do
